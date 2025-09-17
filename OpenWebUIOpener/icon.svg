@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <!-- Black background circle -->
+  <circle cx="128" cy="128" r="120" fill="#000000" stroke="#ffffff" stroke-width="8"/>
+  
+  <!-- White inner elements representing a web interface -->
+  <circle cx="128" cy="128" r="80" fill="none" stroke="#ffffff" stroke-width="3"/>
+  
+  <!-- Browser-like window representation -->
+  <rect x="88" y="98" width="80" height="60" fill="none" stroke="#ffffff" stroke-width="2" rx="4"/>
+  <line x1="88" y1="108" x2="168" y2="108" stroke="#ffffff" stroke-width="2"/>
+  
+  <!-- Three dots representing browser controls -->
+  <circle cx="100" cy="103" r="2" fill="#ffffff"/>
+  <circle cx="109" cy="103" r="2" fill="#ffffff"/>
+  <circle cx="118" cy="103" r="2" fill="#ffffff"/>
+  
+  <!-- UI elements inside -->
+  <rect x="98" y="118" width="60" height="4" fill="#ffffff" rx="2"/>
+  <rect x="98" y="128" width="40" height="4" fill="#ffffff" rx="2"/>
+  <rect x="98" y="138" width="50" height="4" fill="#ffffff" rx="2"/>
+</svg>

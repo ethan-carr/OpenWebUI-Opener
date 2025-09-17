@@ -1,0 +1,130 @@
+<Window x:Class="OpenWebUIOpener.SettingsDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OpenWebUIOpener"
+        mc:Ignorable="d"
+        Title="OpenWebUI Launcher Settings" Height="500" Width="600"
+        WindowStartupLocation="CenterOwner"
+        Background="#1E1E1E">
+    
+    <Window.Resources>
+        <!-- Dark theme styles -->
+        <Style TargetType="Button" x:Key="ModernButton">
+            <Setter Property="Background" Value="#2D2D30"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="BorderBrush" Value="#3F3F46"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="12,8"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="4">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                            VerticalAlignment="Center"
+                                            Margin="{TemplateBinding Padding}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#3E3E42"/>
+                                <Setter Property="BorderBrush" Value="#007ACC"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#007ACC"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="#0D1117"/>
+            <Setter Property="Foreground" Value="#C9D1D9"/>
+            <Setter Property="BorderBrush" Value="#30363D"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="6,4"/>
+            <Setter Property="FontFamily" Value="Consolas, Courier New"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+        
+        <Style TargetType="CheckBox">
+            <Setter Property="Foreground" Value="#C9D1D9"/>
+            <Setter Property="Margin" Value="0,5"/>
+        </Style>
+        
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#C9D1D9"/>
+            <Setter Property="Margin" Value="0,5,0,2"/>
+        </Style>
+    </Window.Resources>
+    
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Header -->
+        <TextBlock Grid.Row="0" Text="Configuration Settings" FontSize="18" FontWeight="Bold" Margin="0,0,0,15"/>
+        
+        <!-- Settings Fields -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <TextBlock Text="Application Title:"/>
+                <TextBox x:Name="TxtAppTitle" Margin="0,0,0,10"/>
+                
+                <TextBlock Text="Web URL:"/>
+                <TextBox x:Name="TxtWebUrl" Margin="0,0,0,10"/>
+                
+                <TextBlock Text="Command:"/>
+                <TextBox x:Name="TxtCommand" Margin="0,0,0,10"/>
+                
+                <TextBlock Text="Command Arguments:"/>
+                <TextBox x:Name="TxtArguments" Margin="0,0,0,10"/>
+                
+                <TextBlock Text="Working Directory (leave empty for user profile):"/>
+                <Grid Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="TxtWorkingDirectory" Grid.Column="0"/>
+                    <Button x:Name="BtnBrowseWorkingDir" Grid.Column="1" Content="Browse..." 
+                           Style="{StaticResource ModernButton}" Margin="5,0,0,0" 
+                           Click="BtnBrowseWorkingDir_Click"/>
+                </Grid>
+                
+                <TextBlock Text="Startup Delay (milliseconds):"/>
+                <TextBox x:Name="TxtStartupDelay" Margin="0,0,0,10"/>
+                
+                <CheckBox x:Name="ChkStartMinimized" Content="Start Minimized" Margin="0,5,0,10"/>
+                
+                <Border BorderBrush="#3F3F46" BorderThickness="0,1,0,0" Margin="0,10,0,10" Padding="0,10,0,0">
+                    <TextBlock TextWrapping="Wrap">
+                        <Run Text="Note: " FontWeight="Bold"/>
+                        <Run Text="These settings are stored in %APPDATA%\OpenWebUIOpener\config.json. You can also configure the application using environment variables. See the README for details."/>
+                    </TextBlock>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+        
+        <!-- Buttons -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,15,0,0">
+            <Button x:Name="BtnReset" Content="Reset to Defaults" Style="{StaticResource ModernButton}" 
+                   Margin="0,0,10,0" Click="BtnReset_Click"/>
+            <Button x:Name="BtnCancel" Content="Cancel" Style="{StaticResource ModernButton}" 
+                   Margin="0,0,10,0" Click="BtnCancel_Click"/>
+            <Button x:Name="BtnSave" Content="Save" Style="{StaticResource ModernButton}" 
+                   Background="#007ACC" Click="BtnSave_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
