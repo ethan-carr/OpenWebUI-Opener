@@ -2,8 +2,6 @@
 
 A simple, user-friendly Windows launcher for [OpenWebUI](https://github.com/open-webui/open-webui), making it easy to start, monitor, and access the interface with a single click.
 
-![OpenWebUI Launcher Screenshot](screenshot.png)
-
 ## Features
 
 - **Easy Launch**: Start OpenWebUI with a single click, no command line needed
@@ -22,7 +20,7 @@ A simple, user-friendly Windows launcher for [OpenWebUI](https://github.com/open
 
 ### Download & Installation
 
-1. Download the latest release from the [Releases page](https://github.com/yourusername/openwebui-launcher/releases).
+1. Download the latest release from the [Releases page](https://github.com/ethan-carr/openwebui-launcher/releases).
 2. Extract the ZIP file to a folder of your choice.
 3. Run `OpenWebUIOpener.exe`.
 
